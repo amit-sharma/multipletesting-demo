@@ -250,7 +250,7 @@ server <- function(input, output) {
     max_FP = input$m*input$t
     #N = input$m - P
     max_fdr = min(1, max_FP/P)
-    print(paste("FDR <=", max_FP, "/", P, "=", max_fdr))
+    print(paste("FDR (assuming all hypotheses are null hypotheses) <=", max_FP, "/", P, "=", max_fdr))
     
     #Now using Mosig's method
     num_bins=20
@@ -270,7 +270,7 @@ server <- function(input, output) {
     est_FP = m0*input$t
     #N = input$m - P
     max_fdr = min(1, est_FP/P)
-    print(paste("FDR <=", est_FP, "/", P, "=", max_fdr))
+    print(paste("FDR (using an estimate for number of null hypotheses) <=", est_FP, "/", P, "=", max_fdr))
     #return(max_fdr)
    })
    
